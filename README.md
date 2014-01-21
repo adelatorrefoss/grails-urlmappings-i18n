@@ -1,8 +1,7 @@
 grails-urlmappings-i18n
 =======================
 
-Grails Plugin to get i18n urls, extending UrlMappings functions.
-With this plugin you cant get various urls, in different languages in the same mapping name.
+Grails Plugin to get i18n urls, extending UrlMappings functions. With this plugin you cant get various urls, in different languages in the same mapping name.
 
 After this config you get this kind of urls:
 
@@ -28,10 +27,21 @@ this sentence, look first for a `'home_' + getLocale()` mapping, and if not exis
 
 Files involved:
 
-./conf/UrlMappings.groovy
-./i18n/messages_es.properties
-./i18n/messages.properties
-Config.groovy
+* ./conf/Config.groovy
+* ./conf/UrlMappings.groovy
+* ./i18n/messages_es.properties
+* ./i18n/messages.properties
+
+
+### Config.groovy
+
+add this lines:
+```
+// Config UrlMappings i18n
+// only for tests
+urlMapping.i18n.languages = ['es','en']
+urlMapping.i18n.defaultLanguage = 'es'
+```
 
 
 ### UrlMappings
@@ -77,21 +87,10 @@ messages.properties
 url.nameA = name-translatedA
 ```
 
-### Config.groovy
-
-add this lines:
-```
-// Config UrlMappings i18n
-// only for tests
-urlMapping.i18n.languages = ['es','en']
-urlMapping.i18n.defaultLanguage = 'es'
-```
-
-
 ## Other files
 
 Files involved (and copied) from grails
 
-UrlMappingsHolderFactoryBean.java
-DefaultLinkGenerator.groovy
-GrailsUrlmappingsI18nGrailsPlugin
+* UrlMappingsHolderFactoryBean.java
+* DefaultLinkGenerator.groovy
+* GrailsUrlmappingsI18nGrailsPlugin
